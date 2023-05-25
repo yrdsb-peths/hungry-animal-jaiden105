@@ -16,7 +16,8 @@ public class Elephant extends Actor
     String facing = "right";
     SimpleTimer animationTimer = new SimpleTimer();
     
-    
+    int walkSpeed = 2;
+    int dashSpeed = 5;
     /**
      * Contructor
      */
@@ -60,12 +61,18 @@ public class Elephant extends Actor
     {
         // Add your action code here.
         if(Greenfoot.isKeyDown("left")) {
-            move(-2);
+            move(-walkSpeed);
             facing = "left";
+            if(Greenfoot.isKeyDown("space")) {
+                move(-dashSpeed);
+            }
         }
         else if(Greenfoot.isKeyDown("right")) {
-            move(3);
+            move(walkSpeed);
             facing = "right";
+            if(Greenfoot.isKeyDown("space")) {
+                move(dashSpeed);
+            }
         }
         
         //Removes apple if elephant eats it
@@ -86,5 +93,12 @@ public class Elephant extends Actor
             world.increaseScore();
             elephantSound.play();
         }
+    }
+    
+    /**
+     * Sets walk speed of elephant
+     */
+    public void setWalkSpeed(int speed) {
+        walkSpeed = speed;
     }
 }
