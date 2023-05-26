@@ -15,13 +15,14 @@ public class Elephant extends Actor
     //Direction the elephant is facing 
     String facing = "right";
     SimpleTimer animationTimer = new SimpleTimer();
-    
+    SimpleTimer dashTimer = new SimpleTimer();
     int walkSpeed = 2;
-    int dashSpeed = 5;
+    int dashSpeed = 20;
     /**
      * Contructor
      */
     public Elephant() {
+        dashTimer.mark();
         for(int i = 0; i < idleRight.length; i++) {
             idleRight[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
             idleRight[i].scale(100, 100);
@@ -63,15 +64,17 @@ public class Elephant extends Actor
         if(Greenfoot.isKeyDown("left")) {
             move(-walkSpeed);
             facing = "left";
-            if(Greenfoot.isKeyDown("space")) {
+            if(dashTimer.millisElapsed() > 1000 && Greenfoot.isKeyDown("space")) {
                 move(-dashSpeed);
+                dashTimer.mark();
             }
         }
         else if(Greenfoot.isKeyDown("right")) {
             move(walkSpeed);
             facing = "right";
-            if(Greenfoot.isKeyDown("space")) {
+            if(dashTimer.millisElapsed() > 1000 && Greenfoot.isKeyDown("space")) {
                 move(dashSpeed);
+                dashTimer.mark();
             }
         }
         
