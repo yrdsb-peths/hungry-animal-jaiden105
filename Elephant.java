@@ -64,6 +64,7 @@ public class Elephant extends Actor
         if(Greenfoot.isKeyDown("left")) {
             move(-walkSpeed);
             facing = "left";
+            //Elephant dashes in the intended direction
             if(dashTimer.millisElapsed() > 1000 && Greenfoot.isKeyDown("space")) {
                 move(-dashSpeed);
                 dashTimer.mark();
@@ -72,6 +73,7 @@ public class Elephant extends Actor
         else if(Greenfoot.isKeyDown("right")) {
             move(walkSpeed);
             facing = "right";
+            //Elephant dashes in the intended direction
             if(dashTimer.millisElapsed() > 1000 && Greenfoot.isKeyDown("space")) {
                 move(dashSpeed);
                 dashTimer.mark();

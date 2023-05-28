@@ -1,6 +1,6 @@
 # Hungry Animal Tutorial
 This is the README.md file.
-Change this file to show your intended audience what you want them to see.
+The features I added to this game was a dash button. To dash, you would need to press space in the direction you want to dash and the elephant would rapidly move forward for a split second. There is a cooldown of 1 second to prevent players from infinitly dashing.
 
 You can use **Markdown** syntax to format this file to do things like **bold** or *italicize* text.
 [Markdown basics](https://www.markdownguide.org/getting-started/)
